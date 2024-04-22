@@ -1,0 +1,172 @@
+:root{
+    --primary_color: #1F1F1F;
+    --secondary_color: #202020;
+    --text_color: #F8F8FF;
+    --text_color_secondary: #C83F11;
+    --degrees: 15deg;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+h3{
+    color: var(--text_color_secondary);
+}
+
+body{
+    background-color: var(--primary_color);
+    color: var(--text_color);
+
+    height: 100svh;
+    width: 100vw;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    perspective: 1000px;
+}
+
+.container{
+    border-radius: 50px;
+
+    scale: 60%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+
+    box-shadow: 0 0 5rem 0rem black;
+    background-color: var(--secondary_color);
+    
+    aspect-ratio: 1/1.5;
+
+    transition: 300ms;
+
+    transform-style: preserve-3d;
+    
+}
+
+.container::before{
+    content: "";
+    inset: 0;
+    position: absolute;
+    background-image: radial-gradient(circle, transparent 300px, black);
+    transition: 300ms;
+    border-radius: 50px;
+    opacity: 0;
+
+   
+
+}
+
+.container:hover::before{
+    transition: 300ms;
+    opacity: 1;
+    
+    
+
+}
+
+
+.card-bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    
+
+}
+
+.profile-photo{
+    
+    border-top-left-radius: 50px ;
+    border-top-right-radius: 50px ;
+    
+    height: auto;
+}
+
+.socials{
+    display: flex;
+    gap: 5rem;
+
+}
+
+a{
+    text-decoration: none;
+    color: var(--text_color);
+    cursor: pointer;
+}
+
+li{
+    list-style: none;
+}
+
+.social{
+    text-decoration: none;
+    font-size: 3rem;
+    
+}
+
+
+.container:hover{
+
+    transition: 300ms;
+    transform: rotateX(var(--degrees));
+    box-shadow: 0 5rem 5rem 1rem black;
+    background-color: #20202071;
+}
+
+.container:hover .profile-photo{
+    transition: 200ms linear;
+    opacity: 0.5;
+
+
+}
+
+
+
+
+.no-bg-img{
+    position: absolute;
+    z-index: 1;
+    inset: 8.5rem 5rem;
+
+    opacity: 0;
+    transition: opacity 300ms,
+                transform 1s;
+   scale: 1.2;
+
+
+}
+
+.container:hover .no-bg-img{
+
+   opacity: 1;
+   transition: 200ms linear;
+   transform: translateY(-3rem);
+
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 750px) {
+    .container{
+        scale: 30%;
+    }
+}
